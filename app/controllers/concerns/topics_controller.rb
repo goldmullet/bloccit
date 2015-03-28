@@ -9,7 +9,7 @@ class TopicsController < ApplicationController
      authorize @topic
   end
 
-  def show
+  def show #This is tied to views/topics/show.html.erb 
      @topic = Topic.find(params[:id])
         @posts = @topic.posts
      authorize @topic
