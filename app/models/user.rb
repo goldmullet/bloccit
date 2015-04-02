@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
-  has_many :posts 
+  has_many :posts
+    mount_uploader :avatar, AvatarUploader 
   has_many :comments
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
