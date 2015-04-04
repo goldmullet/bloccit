@@ -5,11 +5,19 @@
           <%= image_tag(@post.user.avatar.tiny.url) if @post.user.avatar? %>
            submitted <%= time_ago_in_words(@post.created_at) %> ago by
            <%= @post.user.name %>
+          
+    <% if @post.image? %>
+      <div class="col-md-4">
+        <%= image_tag(@post.image.large.url) %>      
+      </div>
+    <% end %>
+
         </small>
     <p><%= markdown_to_html @post.body %></p>
 =======
     <h1><%= post.markdown_title %></h1>
 >>>>>>> post-markdown-assignment
+  
   </div>
   <p><%= @post.markdown_body %></p>
   <div class="col-md-4">
