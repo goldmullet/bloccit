@@ -1,24 +1,27 @@
 <div class="row">
-  <div class="col-md-8">
+<div class="col-md-8">
     <small>
-      <%= image_tag(@post.user.avatar.tiny.url) if @post.user.avatar? %>
-       submitted <%= time_ago_in_words(@post.created_at) %> ago by
-       <%= @post.user.name %>
-          
-      <% if @post.image? %>
+    <% if @post.image? %>
         <div class="col-md-4">
           <%= image_tag(@post.image.large.url) %>      
         </div>
       <% end %>
 
     </small>
-
+      
     <h1><%= markdown @post.title %></h1>
-  </div>
     <p><%= markdown @post.body %></p>
+    <%= image_tag(@post.user.avatar.tiny.url) if @post.user.avatar? %>
+       submitted <%= time_ago_in_words(@post.created_at) %> ago by
+       <%= @post.user.name %>
+    </div>
   <div class="col-md-4">
-    <% if policy(@post).edit? %>
+    
+    </div>
+  <%= render partial: 'comments/comment', collection: @comments %>
+  <% if policy(@post).edit? %>
       <%= link_to "Edit", edit_topic_post_path(@topic, @post), class: 'btn btn-success' %>
     <% end %>
-  </div>
+  <%= render partial: 'comments/form', locals: { topic: @topic, post: @post, comment: @comment } %>
+    
 </div>
