@@ -10,11 +10,13 @@
     </small>
       
     <h1><%= markdown @post.title %></h1>
+
     <p><%= markdown @post.body %></p>
     <%= image_tag(@post.user.avatar.tiny.url) if @post.user.avatar? %>
        submitted <%= time_ago_in_words(@post.created_at) %> ago by
        <%= @post.user.name %>
     </div>
+
   <div class="col-md-4">
     
     </div>
