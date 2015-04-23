@@ -11,10 +11,7 @@
 
   <div class="col-md-4">
 <h1><%= markdown @post.title %></h1>
-    <%= render partial: 'votes/voter', locals: { topic: @topic, post: @post } %>
-
-
-    
+    <%= render partial: 'votes/voter', locals: { topic: @topic, post: @post }   
     </div>
   <%= render partial: 'comments/comment', collection: @comments %>
   <% if policy(@post).edit? %>
