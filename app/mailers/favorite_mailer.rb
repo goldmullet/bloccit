@@ -1,7 +1,6 @@
-app/mailers/favorite_mailer.rb
 
 class FavoriteMailer < ActionMailer::Base
-  default from: "youremail.com"
+  default from: "chiza007@yahoo.com"
 
    def new_comment(user, post, comment)
  
