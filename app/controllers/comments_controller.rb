@@ -7,6 +7,8 @@ class CommentsController < ApplicationController
     @comments = @post.comments
     @comment = current_user.comments.build(comments_params)
     @comment.post = @post
+    @new_comment = Comment.new
+
     if @comment.save
       redirect_to [@topic, @post]
     else 
